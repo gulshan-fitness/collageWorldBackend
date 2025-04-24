@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Build output (if using TypeScript or bundlers like Babel)
+dist/
+build/
+
+# System/OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE folders
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Cache and temp files
+.cache/
+tmp/
+*.tmp
+
+# MongoDB dump files (optional)
+dump/
+
+# Coverage (for testing tools like Jest)
+coverage/
+
+# PID files (process IDs, useful if you're using PM2 or similar tools)
+pids/
+*.pid
+
+# Others
+*.seed
