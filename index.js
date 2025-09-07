@@ -87,6 +87,9 @@ app.use("/website_blog",website_blogs_router)
 app.use("/website_news",website_news_router)
 app.use("/website_story",websitestory_router)
 
+app.get('/', (req, res) => {
+    res.send('Backend is running!');
+});
 
 mongoose.connect(
     process.env.MONGODB_URL,
