@@ -607,33 +607,30 @@ edit(id, data) {
         
         
         
-                    const transporter = nodemailer.createTransport({
-                        service: "gmail",
-                        auth: {
-                          user:'bhawanishankarsharma74@gmail.com', // Your admin 
-                          pass:'lbrmytqjzwagcdye', // Your Gmail App Password mne backend push kiya lekin update hua nhi dekh le check kr
-                        },
-                        host:"smtp.gmail.com", // Gmail's SMTP server
-                        port: 587, // Use port 587 (TLS)
+  
                        
-                        tls: {
-                          rejectUnauthorized: false,
-                        }
-                      });
-              
-              
-              
-                  
-                      const mailOptions = {
-                        from:'Team of Aaopadheindia', // Sender's email (user's email) ye dono mail same he hoge 
-                        to:"gulshankumarjangid@gmail.com", // Receiver's email (admin email)
-        
-                        subject: "new Enquiry",
-        
-                        text: `course applied by- ${user_details.email}
-                        name-${user_details.name}`, // OTP in the email body
-        
-                      }
+                       
+                       const transporter = nodemailer.createTransport({
+                            service: "gmail",
+                            auth: {
+                              user: process.env.SMTP_MAIL || 'bhawanishankarsharma74@gmail.com',
+                              pass: process.env.SMTP_PASS || 'xjhfwspqdqnvpbvk',
+                            },
+                            host: "smtp.gmail.com",
+                            port: 587,
+                            tls: {
+                              rejectUnauthorized: false,
+                            }
+                          });
+                    
+                          const mailOptions = {
+                            from: process.env.SMTP_MAIL || `${user_details?.email}`,
+                            to: "gulshankumarjangid@gmail.com",
+                            subject: "course applied",
+                            text: `${user_details}`,
+                          };
+
+
 
                     await user_model.updateOne(
                         { _id: id },
@@ -646,11 +643,11 @@ edit(id, data) {
 
                     await transporter.sendMail(mailOptions);
     
-                    resolve({ msg: "update successfully", status: 1 });
+                    resolve({ msg: "applied successfully", status: 1 });
                 } catch (error) {
                     console.log(error);
                     
-                    reject({ msg: "internal error", status: 0 });
+                    reject({ msg:error.message, status: 0 });
                 }
             });
 
@@ -671,35 +668,56 @@ edit(id, data) {
         
         
         
-                    const transporter = nodemailer.createTransport({
-                        service: "gmail",
-                        auth: {
-                          user:'bhawanishankarsharma74@gmail.com', // Your admin 
-                          pass:'lbrmytqjzwagcdye', // Your Gmail App Password mne backend push kiya lekin update hua nhi dekh le check kr
-                        },
-                        host:"smtp.gmail.com", // Gmail's SMTP server
-                        port: 587, // Use port 587 (TLS)
+                    // const transporter = nodemailer.createTransport({
+                    //     service: "gmail",
+                    //     auth: {
+                    //       user:'bhawanishankarsharma74@gmail.com', // Your admin 
+                    //       pass:'lbrmytqjzwagcdye', // Your Gmail App Password mne backend push kiya lekin update hua nhi dekh le check kr
+                    //     },
+                    //     host:"smtp.gmail.com", // Gmail's SMTP server
+                    //     port: 587, // Use port 587 (TLS)
                        
-                        tls: {
-                          rejectUnauthorized: false,
-                        }
-                      });
+                    //     tls: {
+                    //       rejectUnauthorized: false,
+                    //     }
+                    //   });
               
               
               
                   
-                      const mailOptions = {
-                        from:'Team of Aaopadheindia', // Sender's email (user's email) ye dono mail same he hoge 
-                        to:"gulshankumarjangid@gmail.com", // Receiver's email (admin email)
+                    //   const mailOptions = {
+                    //     from:'Team of Aaopadheindia', // Sender's email (user's email) ye dono mail same he hoge 
+                    //     to:"gulshankumarjangid@gmail.com", // Receiver's email (admin email)
         
-                        subject: "new Enquiry",
+                    //     subject: "new Enquiry",
         
-                        text: ` college applied by- ${user_details.email}
-                        name-${user_details.name}`, // OTP in the email body
+                    //     text: ` college applied by- ${user_details.email}
+                    //     name-${user_details.name}`, // OTP in the email body
         
-                      }
+                    //   }
 
 
+
+                    
+                       const transporter = nodemailer.createTransport({
+                            service: "gmail",
+                            auth: {
+                              user: process.env.SMTP_MAIL || 'bhawanishankarsharma74@gmail.com',
+                              pass: process.env.SMTP_PASS || 'xjhfwspqdqnvpbvk',
+                            },
+                            host: "smtp.gmail.com",
+                            port: 587,
+                            tls: {
+                              rejectUnauthorized: false,
+                            }
+                          });
+                    
+                          const mailOptions = {
+                            from: process.env.SMTP_MAIL || `${user_details?.email}`,
+                            to: "gulshankumarjangid@gmail.com",
+                            subject: "course applied",
+                            text: `${user_details}`,
+                          };
 
                     
                     await user_model.updateOne(

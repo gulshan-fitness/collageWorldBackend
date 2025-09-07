@@ -129,7 +129,7 @@ college_router.get(
 
 (req,res)=>{
 
-    console.log(req.params.city);
+  
     
         const result = new college_controller().top10_colleges_by_city(req.params.city)
         result.then(

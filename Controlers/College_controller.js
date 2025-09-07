@@ -5,10 +5,12 @@ const { default: mongoose } = require("mongoose");
 
 class college_controller {
   submission(data, logo, campus, pdf, office_photo) {
+    
     console.log(data, logo, campus, pdf, office_photo);
 
     return new Promise(async (resolve, reject) => {
       try {
+
         const campus_images = [];
 
         const main_images = [];
@@ -21,7 +23,8 @@ class college_controller {
 
           
           reject({ msg: "This college already Registered", status: 0 });
-        } else {
+        } 
+        else {
           if (logo) {
             const logoArray = Array.isArray(logo) ? logo : [logo];
             await Promise.all(
@@ -222,7 +225,9 @@ const college = await college_model.aggregate([
       as: "stories",
     },
   },
+
   // Lookup doubts related to the college
+
   {
     $lookup: {
       from: "doubts",
