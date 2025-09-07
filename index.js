@@ -48,7 +48,10 @@ require('dotenv').config()
 
  
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://collage-world-frontend.vercel.app/',
+  credentials: true
+}))
 
 
 
