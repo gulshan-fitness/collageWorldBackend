@@ -58,11 +58,12 @@ const PremiumAdRouter = require("./routers/PremiumAdsRouter");
 app.use(morgan("dev"));
 
 
-app.use(cors(
-   origin: 'https://collage-world-frontend-s6vn.vercel.app/',
-//   credentials: true
-// }
-))
+app.use(
+  cors({
+    origin: ["https://collage-world-frontend-s6vn.vercel.app"],
+    credentials: true,
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Backend is running successfully 🚀");
