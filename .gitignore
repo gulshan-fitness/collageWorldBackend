@@ -1,0 +1,69 @@
+# Dependency directories
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# dotenv environment variable files
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Build output
+dist/
+build/
+
+# Coverage directory used by testing frameworks
+coverage/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Package-lock files (if you're using only yarn)
+package-lock.json
+
+# Tern project file
+.tern-project
+
+# Parcel cache
+.cache/
+
+# eslint cache
+.eslintcache
+
+# TypeScript build
+*.tsbuildinfo
+
+# Jest testing
+jest/
+
+# PM2 process manager logs
+pm2-logs/
+
+# Temporary directories and files
+tmp/
+temp/
