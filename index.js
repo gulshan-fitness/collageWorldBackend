@@ -61,23 +61,31 @@ app.use(morgan("dev"));
 app.use(
   cors({
     origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // Allow Postman or server-to-server requests
+
       const allowedOrigins = [
         "http://localhost:3000",
-  "https://collage-world-frontend.vercel.app",
-  "https://collage-world-frontend.vercel.app/"
+        "https://collage-world-frontend.vercel.app",
       ];
 
-      if (!origin) return callback(null, true); // Allow non-browser tools like Postman
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
+      // Allow any Vercel preview domain (like https://collage-world-frontend-gulshan.vercel.app)
+      const vercelPattern = /\.vercel\.app$/;
+
+      if (
+        allowedOrigins.includes(origin) ||
+        vercelPattern.test(origin)
+      ) {
+        callback(null, true);
       } else {
-        return callback(new Error("CORS not allowed from this origin"), false);
+        console.warn("🚫 CORS blocked request from:", origin);
+        callback(new Error("CORS not allowed from this origin"), false);
       }
     },
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
+
 
 
 app.get("/", (req, res) => {
