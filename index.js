@@ -62,8 +62,9 @@ app.use(
   cors({
     origin: function (origin, callback) {
       const allowedOrigins = [
-        "http://localhost:3000", // local dev
-        "https://collage-world-frontend.vercel.app", // your Vercel domain
+        "http://localhost:3000",
+  "https://collage-world-frontend.vercel.app",
+  "https://collage-world-frontend.vercel.app/"
       ];
 
       if (!origin) return callback(null, true); // Allow non-browser tools like Postman
