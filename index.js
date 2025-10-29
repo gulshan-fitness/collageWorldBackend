@@ -60,7 +60,9 @@ app.use(morgan("dev"));
 
 app.use(cors())
 
-
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
 
 
 app.use("/college",college_router)
