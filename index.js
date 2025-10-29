@@ -60,7 +60,7 @@ app.use(morgan("dev"));
 
 app.use(
   cors({
-    origin: ["https://collage-world-frontend-s6vn.vercel.app"],
+    origin: ["https://collage-world-frontend.vercel.app"],
     credentials: true,
   })
 );
